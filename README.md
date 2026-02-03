@@ -1,36 +1,82 @@
 # Codex Repository Overview
 
+This repository now includes a **starter CLI** and a few **sample coding problems**
+implemented in Python. Use it as a base to grow a real project (CLI, API, web app,
+or learning playground).
+
 ## General Structure (Current State)
 
-At the moment, this repository contains only a placeholder file to keep the
-repository non-empty:
-
-- `.gitkeep`: Placeholder file; no source code or directories exist yet.
-
-There are **no** application modules, build scripts, or test suites present
-right now.
+```
+.
+├─ src/
+│  ├─ codex_cli.py         # CLI entry point
+│  └─ problems/            # Example problem solutions
+│     ├─ __init__.py
+│     ├─ math.py
+│     └─ strings.py
+├─ docs/                   # Documentation (expand over time)
+├─ .gitkeep
+└─ README.md
+```
 
 ## Important Things to Know
 
-- The repository is effectively empty, which means there are no conventions,
-  entry points, or dependency management decisions in place yet.
-- Any future structure (e.g., `src/`, `lib/`, `tests/`) and tooling (e.g.,
-  language runtime, build system, CI configuration) will need to be introduced
-  from scratch.
+- The CLI is intentionally small and easy to extend.
+- Problem solutions live in `src/problems` and are registered in
+  `src/problems/__init__.py`.
+- Each problem is a plain function that can be called from the CLI.
 
-## Pointers for Things to Learn Next (Once Code Exists)
+## How to Run the CLI
 
-When the codebase is introduced, the most useful onboarding steps typically
-include:
+From the repository root:
 
-1. **Project entry point**: Identify how the application starts (CLI, server,
-   or UI entry).
-2. **Module map**: Learn the major directories/modules and the responsibilities
-   of each.
-3. **Build & run workflow**: Understand how to install dependencies, run the
-   app, and execute tests.
-4. **Development conventions**: Find style guides, linting rules, and contribution
-   workflows.
+```bash
+python src/codex_cli.py list
+python src/codex_cli.py run sum_of_multiples --payload '{"limit": 10}'
+python src/codex_cli.py run is_palindrome --payload '{"text": "Never odd or even"}'
+python src/codex_cli.py run word_frequencies --payload '{"text": "Hello hello world"}'
+```
 
-If you add the code or point to another branch, this document can be updated
-with concrete, code-based details.
+## Problems Included (Examples You Can Extend)
+
+- **sum_of_multiples(limit, multiples=(3,5))**: sums all numbers below `limit`
+  divisible by any given multiples.
+- **is_palindrome(text)**: checks if text is a palindrome, ignoring punctuation.
+- **word_frequencies(text)**: counts lowercase word frequencies.
+
+## Suggested Next Steps
+
+1. Add more problems under `src/problems/` (sorting, arrays, DP, graphs).
+2. Add tests under `tests/` to validate each problem solution.
+3. Turn the CLI into a package with `pyproject.toml`.
+4. Add GitHub Actions for linting and tests.
+
+## GitHub Project Ideas (What You Can Build With Codex)
+
+### 1) Personal Developer Dashboard
+- A small web app that tracks GitHub activity, open PRs, and TODOs.
+- Add issues: dashboard layout, GitHub API integration, auth, UI theming.
+
+### 2) CLI Productivity Toolkit
+- A CLI that creates project templates or manages TODOs from the terminal.
+- Add issues: CLI command structure, config file format, tests, release pipeline.
+
+### 3) Study Tracker / Learning Journal
+- A lightweight app to log learning sessions and generate weekly summaries.
+- Add issues: data model, storage layer, summary report generator, UI or CLI.
+
+### 4) Microservice Starter Kit
+- A reference template with logging, health checks, Docker, and CI.
+- Add issues: base service skeleton, health endpoint, dockerfile, CI workflow.
+
+### 5) Code Snippet Library
+- A small app to store and tag code snippets with search.
+- Add issues: CRUD endpoints, tagging system, search UX, import/export.
+
+## Starter GitHub Issues You Can Create Now
+
+- **Define project scope**: Choose 1 idea and write a short product brief.
+- **Add new problems**: Implement 3 more coding problems with docstrings.
+- **Set up tests**: Add a minimal `pytest` suite for the problems.
+- **Add CI**: GitHub Actions workflow for lint/test.
+- **Write CONTRIBUTING.md**: How to run, test, and contribute.
