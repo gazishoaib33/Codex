@@ -80,3 +80,8 @@ python src/codex_cli.py run word_frequencies --payload '{"text": "Hello hello wo
 - **Set up tests**: Add a minimal `pytest` suite for the problems.
 - **Add CI**: GitHub Actions workflow for lint/test.
 - **Write CONTRIBUTING.md**: How to run, test, and contribute.
+
+## Updates
+
+- Added a small README refresh to track incremental improvements and keep the
+  project overview current.
